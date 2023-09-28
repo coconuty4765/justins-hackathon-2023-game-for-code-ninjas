@@ -78,7 +78,3 @@ tiles.place_on_random_tile(eneimy, assets.tile("""
 """))
 eneimy.follow(mySprite, 37)
 scene.camera_follow_sprite(mySprite)
-
-def on_update_interval():
-    info.change_score_by(1)
-game.on_update_interval(1000, on_update_interval)

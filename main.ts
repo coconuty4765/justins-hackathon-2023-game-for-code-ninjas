@@ -3,8 +3,8 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile4`, function (sprite, location) {
     game.setDialogTextColor(1)
-    game.gameOver(true)
     game.setGameOverMessage(true, "You Escaped....... For now")
+    game.gameOver(true)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite2, otherSprite) {
     sprites.destroy(sprite2)
