@@ -6,12 +6,12 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile4`, function (sprite, l
     game.gameOver(true)
     game.setGameOverMessage(true, "You Escaped....... For now")
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite2, otherSprite) {
+    sprites.destroy(sprite2)
+    game.gameOver(false)
+})
 controller.A.onEvent(ControllerButtonEvent.Released, function () {
     controller.moveSprite(mySprite, 37, 37)
-})
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    sprites.destroy(sprite)
-    game.gameOver(false)
 })
 let mySprite: Sprite = null
 game.splash("Wonderer In A Maze Of Death: No Way Is Safe")
@@ -60,7 +60,7 @@ let eneimy = sprites.create(img`
 tiles.setCurrentTilemap(tilemap`Map1`)
 tiles.placeOnRandomTile(mySprite, assets.tile`Door0`)
 tiles.placeOnRandomTile(eneimy, assets.tile`myTile22`)
-eneimy.follow(mySprite, 37)
+eneimy.follow(mySprite, 40)
 scene.cameraFollowSprite(mySprite)
 game.onUpdateInterval(1000, function () {
     info.changeScoreBy(1)
